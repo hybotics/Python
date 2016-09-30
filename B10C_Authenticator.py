@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import requests
 import json
 
@@ -15,8 +15,10 @@ class B10C_Authenticator:
 
 		result = requests.post(self.urlbase, data=acct_data)
 
-		self.result = result
-
 		print ("library: result = '{0}'".format(result))
+		print ("library: result.text = '{0}'".format(result.text))
+
+		#self.result = result.text
+		self.result = json.loads(result.text)
 
 		return None
